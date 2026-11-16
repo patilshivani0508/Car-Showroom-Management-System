@@ -1,12 +1,12 @@
-# 🚗 Car Showroom Management System
+🚗 Car Showroom Management System
 
-## 📌 Project Overview
+📌 Project Overview
 
 The **Car Showroom Management System** is a Java-based desktop application developed to manage the daily operations of a car showroom.
 
 The application helps manage car details, customer information, bookings, employees, payments, insurance, vehicle services, stock, vendors and sales-related records.
 
-## 🎯 Objectives
+🎯 Objectives
 
 - To simplify car showroom management.
 - To maintain car and customer records.
@@ -14,14 +14,14 @@ The application helps manage car details, customer information, bookings, employ
 - To maintain employee, vendor and stock information.
 - To organize showroom operations in one application.
 
-## 🛠️ Technologies Used
+ 🛠️ Technologies Used
 
 - **Programming Language:** Java
 - **IDE:** NetBeans IDE
 - **Database:** SQL
 - **UI:** Java Desktop Application
 
-## ✨ Project Modules
+✨ Project Modules
 
 1. **Login and Registration** – User login and signup.
 2. **Home Page** – Main application interface.
@@ -38,7 +38,7 @@ The application helps manage car details, customer information, bookings, employ
 13. **Vendor Order Management** – Manage vendor orders.
 14. **Reports** – View showroom-related reports.
 
-## 📂 Project Structure
+📂 Project Structure
 
 ```text
 Car_Showroom_Management_System/
@@ -61,7 +61,7 @@ Car_Showroom_Management_System/
 └── README.md
 ```
 
-## ⚙️ How to Run the Project
+ ⚙️ How to Run the Project
 
 1. Install Java JDK and NetBeans IDE.
 2. Download or clone this repository.
@@ -72,14 +72,15 @@ Car_Showroom_Management_System/
 7. Configure the database connection in `Database.java`.
 8. Run the project from NetBeans.
 
-## 🗄️ Database
+🗄️ Database
 
 The project includes SQL files in the `Dump20250331` folder containing database-related scripts.
 
 Use these files to set up the database required by the application.
 
-## 👩‍💻 Developed By
+Developed By
 
-**Shivani Patil**
+Shivani Patil
+
 
 Car Showroom Management System – Java Project.
