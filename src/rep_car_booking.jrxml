@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_car_booking" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eb540b1-9b6b-4eae-8e13-5db2cad075ea">
+	<property name="ireport.zoom" value="1.9487171000000025"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="sdate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="edate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     car_booking.`booking_id` AS car_booking_booking_id,
+     car_booking.`booking_date` AS car_booking_booking_date,
+     car_booking.`customer_name` AS car_booking_customer_name,
+     car_booking.`customer_address` AS car_booking_customer_address,
+     car_booking.`customer_city` AS car_booking_customer_city,
+     car_booking.`customer_contact` AS car_booking_customer_contact,
+     car_booking.`model` AS car_booking_model,
+     car_booking.`car_name` AS car_booking_car_name,
+     car_booking.`color` AS car_booking_color,
+     car_booking.`Ex_showroom_price` AS car_booking_Ex_showroom_price,
+     car_booking.`insurance` AS car_booking_insurance,
+     car_booking.`registration_fee` AS car_booking_registration_fee,
+     car_booking.`total_amount` AS car_booking_total_amount,
+     car_booking.`customer_id` AS car_booking_customer_id,
+     car_booking.`car_id` AS car_booking_car_id,
+     car_booking.`advanced_amount` AS car_booking_advanced_amount,
+     car_booking.`pending_amount` AS car_booking_pending_amount
+FROM
+     `car_booking` car_booking
+where booking_date between $P{sdate} and $P{edate};]]>
+	</queryString>
+	<field name="car_booking_booking_id" class="java.lang.Integer"/>
+	<field name="car_booking_booking_date" class="java.sql.Date"/>
+	<field name="car_booking_customer_name" class="java.lang.String"/>
+	<field name="car_booking_customer_address" class="java.lang.String"/>
+	<field name="car_booking_customer_city" class="java.lang.String"/>
+	<field name="car_booking_customer_contact" class="java.lang.Long"/>
+	<field name="car_booking_model" class="java.lang.String"/>
+	<field name="car_booking_car_name" class="java.lang.String"/>
+	<field name="car_booking_color" class="java.lang.String"/>
+	<field name="car_booking_Ex_showroom_price" class="java.lang.Float"/>
+	<field name="car_booking_insurance" class="java.lang.String"/>
+	<field name="car_booking_registration_fee" class="java.lang.Float"/>
+	<field name="car_booking_total_amount" class="java.lang.Float"/>
+	<field name="car_booking_customer_id" class="java.lang.Integer"/>
+	<field name="car_booking_car_id" class="java.lang.Integer"/>
+	<field name="car_booking_advanced_amount" class="java.lang.Float"/>
+	<field name="car_booking_pending_amount" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="7d776231-ccd0-488b-bfc0-93c35d89bac3"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="d0432eb9-1dd5-4a73-8c63-78ddc54ddf73"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Car Booking]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="0104e93a-9e12-48c6-8555-b3b387ee295e"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="7866574c-71af-4b5f-96b2-a414443359ed"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="e9933485-e85b-496e-925a-392efa17366e"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="36" height="18" forecolor="#000000" uuid="845345f9-b671-43ab-88af-fa41520c44d3"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[B_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="36" y="0" width="46" height="18" forecolor="#000000" uuid="9c1452ce-1c89-470b-b69e-8fd2ae243068"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="82" y="0" width="46" height="18" forecolor="#000000" uuid="558952f7-b22a-4ac1-a2cc-a97d534ed7c9"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="123" y="0" width="76" height="18" forecolor="#000000" uuid="8f88af73-9b1d-477e-9727-42e0830fd9f6"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="199" y="0" width="51" height="18" forecolor="#000000" uuid="467f91aa-bea5-4fe8-8e64-854494cf21e7"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="250" y="0" width="56" height="18" forecolor="#000000" uuid="b1593e98-6eed-41e7-a832-addcf2fe551f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="306" y="0" width="46" height="18" forecolor="#000000" uuid="a1f8b2f6-4f6c-40db-8b57-1ea64f331afb"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="352" y="0" width="62" height="18" forecolor="#000000" uuid="bd87dfb2-36a4-4150-b7e9-a94fb079763b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Car_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="0" width="46" height="18" forecolor="#000000" uuid="36a300e1-3c48-4860-bd80-4e32d3af0665"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Color]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="0" width="59" height="18" forecolor="#000000" uuid="62865816-43c5-4926-858c-a74ec09fe80b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ex_price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="519" y="0" width="61" height="18" forecolor="#000000" uuid="b0d7f80c-5b54-4abf-9eaf-aa37c42ff95c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insurance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="580" y="0" width="46" height="18" forecolor="#000000" uuid="71661a14-2f35-476e-87e4-0c4003765ec9"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reg_fee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="626" y="0" width="60" height="18" forecolor="#000000" uuid="6bb8bc18-3aeb-42dc-a128-17d62fad7eb7"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total_amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="686" y="0" width="58" height="18" forecolor="#000000" uuid="b8336759-c755-4890-9493-70990689fdb4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Adv_amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="744" y="0" width="60" height="18" forecolor="#000000" uuid="84a3fde2-517c-4c55-8a20-19076d902d79"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pend_amt]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="f4ca405c-4e79-47a5-918e-d1530577a974"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="36" height="18" uuid="a9524ddb-5bb3-421a-b030-4d43eedd9aa8"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_booking_id}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+					<reportElement style="Detail" positionType="Float" x="36" y="0" width="46" height="18" uuid="4abae0e1-e63e-402e-a4c0-9eb8a8e5395c"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_booking_date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="82" y="0" width="46" height="18" uuid="be1a3948-7377-4822-9c4a-8bc6c9e5fd1d"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_customer_name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="128" y="0" width="76" height="18" uuid="96e0421f-16eb-4ffe-bc4c-629d989d1c5f"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_customer_address}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="199" y="0" width="51" height="18" uuid="042ae69a-40ee-4d2a-ba34-2abed09aa873"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_customer_city}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="250" y="0" width="56" height="18" uuid="1eea3c3d-9876-4e64-82f5-c08a64b08782"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_customer_contact}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="306" y="0" width="46" height="18" uuid="8f52aad0-a7ea-488e-9824-860bba1ea8ff"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_model}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="352" y="0" width="62" height="18" uuid="acdc3b22-e735-4da5-ba00-29beadb324c6"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_car_name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="414" y="0" width="46" height="18" uuid="4c311050-017a-45fb-8f90-503c7f173116"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_color}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="460" y="0" width="59" height="18" uuid="1fc2df9a-46fd-42b6-9f7c-20c8d15e3a34"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_Ex_showroom_price}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="519" y="0" width="61" height="18" uuid="1784ac69-6a16-4294-ba1c-6d23e3452a8e"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_insurance}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="580" y="0" width="46" height="18" uuid="97dff0c1-14da-4897-81aa-39d8a292d2b5"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_registration_fee}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="626" y="0" width="60" height="18" uuid="346bcf0b-a29d-47cf-9320-be35074d5f0a"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_total_amount}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="686" y="0" width="58" height="18" uuid="756e4aea-89d8-441d-9afa-7181ee6f5085"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_advanced_amount}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="742" y="0" width="55" height="18" uuid="29ea6777-4fee-4c23-bb70-40ee670d86c4"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{car_booking_pending_amount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="0d19518d-7ccc-4afe-abea-9b84ce99a723"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="61497d1d-6d90-4925-9423-b10ed14836ca"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="983d34a2-7acd-4c49-928b-afd6fa1b1be2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="c9945a23-c23b-409f-8d4a-fcb429662fce"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="cc83eb5d-c183-4615-9d82-4d985f423497"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
